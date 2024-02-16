@@ -60,7 +60,7 @@ namespace UpdateTerminRealizacjiTerminarz
                     using (SqlConnection conn = new SqlConnection(ConnectionString))
                     {
                         conn.Open();
-                        string query = "UPDATE CDN.Zadania SET Zad_TerminOd = DATEDIFF(SECOND, '1990-01-01', @TerminOd), Zad_TerminDo = DATEDIFF(SECOND, '1990-01-01', @TerminDo) WHERE Zad_ID = @ZadID";
+                        string query = "UPDATE CDN.Zadania SET Zad_TerminOd = DATEDIFF(SECOND, '1990-01-01', @TerminOd), Zad_TerminDo = DATEDIFF(SECOND, '1990-01-01', @TerminDo), Zad_CzasWykonania = DATEDIFF(SECOND, '1990-01-01', @TerminDo) WHERE Zad_ID = @ZadID";
                         SqlCommand command = new SqlCommand(query, conn);
                         command.Parameters.AddWithValue("@ZadID", ZadId);
                         command.Parameters.AddWithValue("@TerminOd", dataGridView1.Rows[0].Cells[0].Value);
